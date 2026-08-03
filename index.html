@@ -1,13 +1,528 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VO2 Detailing</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="VO2 Detailing — professional mobile auto detailing." />
+  <title>VO2 Detailing | Mobile Auto Detailing</title>
+  <style>
+    * { box-sizing: border-box; }
+    :root {
+      --green:#79ff4d;
+      --black:#080a09;
+      --panel:#111411;
+      --white:#f5f7f4;
+      --muted:#a7aea5;
+      --line:rgba(255,255,255,.11);
+    }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      background:var(--black);
+      color:var(--white);
+      font-family:Arial,Helvetica,sans-serif;
+      line-height:1.6;
+    }
+    a { color:inherit; text-decoration:none; }
+    .header {
+      min-height:76px;
+      padding:0 6vw;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(8,10,9,.92);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+    }
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      letter-spacing:.16em;
+      font-size:.8rem;
+    }
+    .brand-mark {
+      background:var(--green);
+      color:#071006;
+      padding:7px 9px;
+      border-radius:3px;
+      letter-spacing:-.04em;
+      font-size:1rem;
+    }
+    .nav { display:flex; gap:28px; font-size:.9rem; color:#dce1da; }
+    .nav a:hover { color:var(--green); }
+    .menu {
+      display:none;
+      border:0;
+      background:transparent;
+      color:white;
+      font-size:1.5rem;
+    }
+    .button {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:50px;
+      padding:0 22px;
+      border-radius:4px;
+      border:1px solid var(--green);
+      background:var(--green);
+      color:#071006;
+      font-weight:800;
+      transition:.2s ease;
+    }
+    .button:hover { transform:translateY(-2px); background:#94ff73; }
+    .button.outline {
+      background:transparent;
+      color:white;
+      border-color:rgba(255,255,255,.25);
+    }
+    .button.small { min-height:42px; padding:0 17px; font-size:.85rem; }
+    .hero {
+      min-height:740px;
+      padding:90px 7vw 70px;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:7vw;
+      align-items:center;
+      overflow:hidden;
+      position:relative;
+    }
+    .hero::before {
+      content:"";
+      position:absolute;
+      width:520px;
+      height:520px;
+      border-radius:50%;
+      background:rgba(121,255,77,.11);
+      filter:blur(90px);
+      left:-170px;
+      top:90px;
+    }
+    .hero > * { position:relative; z-index:1; }
+    .eyebrow {
+      margin:0 0 14px;
+      color:var(--green);
+      font-size:.75rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-weight:800;
+    }
+    h1 {
+      margin:0;
+      font-size:clamp(4rem,9vw,8.7rem);
+      line-height:.88;
+      letter-spacing:-.07em;
+      text-transform:uppercase;
+    }
+    h1 span { color:var(--green); }
+    .hero-copy {
+      max-width:610px;
+      margin:28px 0;
+      color:var(--muted);
+      font-size:1.07rem;
+    }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; }
+    .hero-points {
+      margin-top:32px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+      color:#cbd0c9;
+      text-transform:uppercase;
+      letter-spacing:.11em;
+      font-size:.75rem;
+    }
+    .hero-points span::before { content:"•"; color:var(--green); margin-right:8px; }
+    .hero-card {
+      min-height:520px;
+      padding:28px;
+      border:1px solid rgba(121,255,77,.27);
+      border-radius:8px;
+      background:linear-gradient(145deg,rgba(121,255,77,.08),transparent 34%),#101310;
+      box-shadow:0 35px 100px rgba(0,0,0,.45);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .card-top,.card-bottom {
+      display:flex;
+      justify-content:space-between;
+      color:var(--muted);
+      font-size:.78rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .card-top span:first-child { color:var(--green); font-weight:800; }
+    .card-bottom p {
+      max-width:330px;
+      margin:0;
+      letter-spacing:0;
+      text-transform:none;
+    }
+    .car {
+      height:250px;
+      position:relative;
+    }
+    .car-body {
+      position:absolute;
+      width:88%;
+      height:95px;
+      left:6%;
+      bottom:43px;
+      background:linear-gradient(90deg,#d5ddd2,#f8fff5 50%,#9ba897);
+      clip-path:polygon(0 48%,13% 30%,31% 25%,44% 0,69% 0,82% 25%,96% 33%,100% 55%,95% 100%,5% 100%);
+    }
+    .car-window {
+      position:absolute;
+      width:43%;
+      height:70px;
+      left:36%;
+      bottom:111px;
+      background:#1b2b1a;
+      clip-path:polygon(18% 100%,35% 5%,80% 5%,100% 100%);
+      z-index:2;
+    }
+    .wheel {
+      position:absolute;
+      width:66px;
+      height:66px;
+      bottom:18px;
+      border-radius:50%;
+      background:#080908;
+      border:10px solid #272d26;
+      z-index:3;
+    }
+    .wheel::after {
+      content:"";
+      position:absolute;
+      inset:13px;
+      border-radius:50%;
+      background:var(--green);
+    }
+    .w1 { left:16%; }
+    .w2 { right:15%; }
+    .stats {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+    .stats div { padding:34px 5vw; border-right:1px solid var(--line); }
+    .stats div:last-child { border-right:0; }
+    .stats strong,.stats span { display:block; }
+    .stats strong { font-size:1.2rem; }
+    .stats span { color:var(--muted); font-size:.84rem; margin-top:4px; }
+    .section { padding:110px 7vw; }
+    .heading { max-width:760px; margin-bottom:45px; }
+    .heading h2,.cta h2 {
+      margin:0;
+      font-size:clamp(2.5rem,5vw,5rem);
+      line-height:.99;
+      letter-spacing:-.055em;
+    }
+    .heading p:last-child,.cta p:last-child { color:var(--muted); }
+    .service-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .service-card {
+      min-height:490px;
+      padding:31px;
+      border:1px solid var(--line);
+      border-radius:7px;
+      background:var(--panel);
+      display:flex;
+      flex-direction:column;
+      position:relative;
+    }
+    .service-card.featured {
+      border-color:rgba(121,255,77,.6);
+      background:linear-gradient(180deg,rgba(121,255,77,.07),transparent 40%),var(--panel);
+    }
+    .popular {
+      position:absolute;
+      right:18px;
+      top:18px;
+      padding:6px 9px;
+      background:var(--green);
+      color:black;
+      border-radius:3px;
+      font-size:.65rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+    .number { color:var(--green); font-size:.75rem; letter-spacing:.18em; }
+    .service-card h3 { margin:22px 0 8px; font-size:1.75rem; }
+    .service-card p { color:var(--muted); }
+    .service-card ul { list-style:none; padding:0; margin:20px 0 34px; color:#d8dcd6; }
+    .service-card li { padding:11px 0; border-bottom:1px solid var(--line); }
+    .service-card li::before { content:"✓"; color:var(--green); margin-right:10px; }
+    .service-card a { margin-top:auto; color:var(--green); font-weight:800; }
+    .process {
+      background:#0d100d;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+    .process-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1px;
+      background:var(--line);
+      border:1px solid var(--line);
+    }
+    .process-grid article { min-height:260px; padding:33px; background:#0d100d; }
+    .process-grid h3 { margin:48px 0 10px; font-size:1.28rem; }
+    .process-grid p { color:var(--muted); }
+    .gallery-grid {
+      display:grid;
+      grid-template-columns:1.2fr .8fr .8fr;
+      gap:16px;
+    }
+    .gallery-item {
+      min-height:410px;
+      padding:26px;
+      border-radius:7px;
+      border:1px solid var(--line);
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      background:linear-gradient(to top,rgba(0,0,0,.8),transparent 60%),radial-gradient(circle at 70% 25%,rgba(121,255,77,.25),transparent 24%),linear-gradient(135deg,#323a31,#111511 55%,#1b221a);
+    }
+    .gallery-item:nth-child(2) {
+      background:linear-gradient(to top,rgba(0,0,0,.8),transparent 60%),radial-gradient(circle at 40% 20%,rgba(255,255,255,.2),transparent 24%),linear-gradient(145deg,#1f251f,#080a08 60%);
+    }
+    .gallery-item:nth-child(3) {
+      background:linear-gradient(to top,rgba(0,0,0,.8),transparent 60%),radial-gradient(circle at 45% 30%,rgba(121,255,77,.18),transparent 22%),linear-gradient(125deg,#20251f,#0b0c0b);
+    }
+    .gallery-item span {
+      color:var(--green);
+      text-transform:uppercase;
+      letter-spacing:.13em;
+      font-size:.7rem;
+      font-weight:800;
+    }
+    .gallery-item p { margin:8px 0 0; font-weight:700; font-size:1.15rem; }
+    .cta {
+      margin:0 7vw 85px;
+      padding:58px;
+      border-radius:8px;
+      background:var(--green);
+      color:#091008;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:38px;
+    }
+    .cta .eyebrow { color:#28521a; }
+    .cta p:last-child { color:#31512a; max-width:620px; }
+    .cta-actions { display:flex; flex-wrap:wrap; gap:10px; flex-shrink:0; }
+    .cta .button { background:#091008; color:white; border-color:#091008; }
+    .cta .button.outline { background:transparent; color:#091008; border-color:rgba(9,16,8,.35); }
+    footer {
+      padding:34px 7vw;
+      border-top:1px solid var(--line);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      color:var(--muted);
+      font-size:.8rem;
+    }
+    footer .brand { color:white; }
+    @media(max-width:900px) {
+      .desktop-book { display:none; }
+      .menu { display:block; }
+      .nav {
+        display:none;
+        position:absolute;
+        top:75px;
+        left:0;
+        width:100%;
+        padding:24px 6vw;
+        background:#0d100d;
+        border-bottom:1px solid var(--line);
+        flex-direction:column;
+      }
+      .nav.open { display:flex; }
+      .hero { grid-template-columns:1fr; padding-top:75px; }
+      .hero-card { min-height:420px; }
+      .service-grid,.process-grid,.gallery-grid { grid-template-columns:1fr; }
+      .gallery-item { min-height:320px; }
+      .cta { align-items:flex-start; flex-direction:column; }
+    }
+    @media(max-width:620px) {
+      .header { padding:0 20px; }
+      .hero,.section { padding-left:20px; padding-right:20px; }
+      .hero { min-height:auto; padding-bottom:60px; }
+      h1 { font-size:4rem; }
+      .hero-card { min-height:355px; padding:20px; }
+      .car { transform:scale(.88); }
+      .stats { grid-template-columns:1fr; }
+      .stats div { border-right:0; border-bottom:1px solid var(--line); }
+      .stats div:last-child { border-bottom:0; }
+      .section { padding-top:80px; padding-bottom:80px; }
+      .cta { margin:0 20px 60px; padding:34px 24px; }
+      .cta-actions,.cta-actions .button { width:100%; }
+      footer { padding:30px 20px; align-items:flex-start; flex-direction:column; }
+    }
+  </style>
 </head>
 <body>
-<h1>VO2 Detailing</h1>
-<p>Professional Mobile Auto Detailing</p>
+  <header class="header">
+    <a class="brand" href="#top"><span class="brand-mark">VO2</span><span>DETAILING</span></a>
+    <button class="menu" aria-label="Open menu">☰</button>
+    <nav class="nav">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="button small desktop-book" href="sms:5092013780?body=Hi%2C%20I%27d%20like%20to%20book%20a%20detail.">Text to Book</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Professional mobile auto detailing</p>
+        <h1>Your car.<br><span>Reset.</span></h1>
+        <p class="hero-copy">Thorough interior and exterior detailing brought directly to you. Clean work, premium products and results you can see.</p>
+        <div class="hero-actions">
+          <a class="button" href="sms:5092013780?body=Hi%2C%20I%27d%20like%20to%20book%20a%20detail.">Text to Book</a>
+          <a class="button outline" href="#services">View Services</a>
+        </div>
+        <div class="hero-points">
+          <span>Mobile service</span>
+          <span>Interior + exterior</span>
+          <span>Detail-focused care</span>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="card-top"><span>VO2</span><span>01</span></div>
+        <div class="car">
+          <div class="car-window"></div>
+          <div class="car-body"></div>
+          <div class="wheel w1"></div>
+          <div class="wheel w2"></div>
+        </div>
+        <div class="card-bottom"><p>Built for daily drivers, families, commuters and enthusiasts.</p></div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div><strong>Mobile</strong><span>We come to you</span></div>
+      <div><strong>Careful</strong><span>Safe methods and products</span></div>
+      <div><strong>Complete</strong><span>Inside and out</span></div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="heading">
+        <p class="eyebrow">Services</p>
+        <h2>Choose the level of reset.</h2>
+        <p>Final pricing can vary based on vehicle size and condition.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card">
+          <span class="number">01</span>
+          <h3>Interior Reset</h3>
+          <p>For interiors that need a full refresh.</p>
+          <ul>
+            <li>Thorough vacuum</li>
+            <li>Dash, plastics and panels</li>
+            <li>Seats and carpet cleaning</li>
+            <li>Interior glass</li>
+          </ul>
+          <a href="sms:5092013780?body=Hi%2C%20I%27m%20interested%20in%20the%20Interior%20Reset.">Ask for a quote →</a>
+        </article>
+
+        <article class="service-card featured">
+          <div class="popular">Most popular</div>
+          <span class="number">02</span>
+          <h3>Full Detail</h3>
+          <p>A complete interior and exterior cleanup.</p>
+          <ul>
+            <li>Interior Reset included</li>
+            <li>Foam wash and hand wash</li>
+            <li>Wheels and tires cleaned</li>
+            <li>Exterior protection applied</li>
+          </ul>
+          <a href="sms:5092013780?body=Hi%2C%20I%27m%20interested%20in%20the%20Full%20Detail.">Ask for a quote →</a>
+        </article>
+
+        <article class="service-card">
+          <span class="number">03</span>
+          <h3>Exterior Refresh</h3>
+          <p>Restore gloss and clean up the exterior.</p>
+          <ul>
+            <li>Pre-wash and hand wash</li>
+            <li>Wheel and tire cleaning</li>
+            <li>Tire dressing</li>
+            <li>Spray protection</li>
+          </ul>
+          <a href="sms:5092013780?body=Hi%2C%20I%27m%20interested%20in%20the%20Exterior%20Refresh.">Ask for a quote →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section process" id="process">
+      <div class="heading">
+        <p class="eyebrow">How it works</p>
+        <h2>Simple from start to finish.</h2>
+      </div>
+      <div class="process-grid">
+        <article><span class="number">01</span><h3>Send vehicle details</h3><p>Text the year, make, model and a few photos of the condition.</p></article>
+        <article><span class="number">02</span><h3>Receive your quote</h3><p>We confirm the service, price, location and appointment time.</p></article>
+        <article><span class="number">03</span><h3>We come to you</h3><p>Your vehicle gets detailed while you stay home, work or study.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="heading">
+        <p class="eyebrow">Gallery</p>
+        <h2>Real results belong here.</h2>
+        <p>Replace these placeholders with your own before-and-after photos later.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item"><span>Before / After</span><p>Interior transformation</p></div>
+        <div class="gallery-item"><span>Exterior</span><p>Gloss and finish</p></div>
+        <div class="gallery-item"><span>Details</span><p>Wheels, trim and finishing touches</p></div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div>
+        <p class="eyebrow">Ready to book?</p>
+        <h2>Give your car the reset it deserves.</h2>
+        <p>Text VO2 Detailing with your vehicle information and preferred service.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="button" href="sms:5092013780?body=Hi%2C%20I%27d%20like%20a%20quote%20for%20my%20vehicle.">Text 509-201-3780</a>
+        <a class="button outline" href="tel:5092013780">Call Now</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#top"><span class="brand-mark">VO2</span><span>DETAILING</span></a>
+    <p>Professional mobile auto detailing.</p>
+    <p>© <span id="year"></span> VO2 Detailing</p>
+  </footer>
+
+  <script>
+    const menu = document.querySelector(".menu");
+    const nav = document.querySelector(".nav");
+    menu.addEventListener("click", () => nav.classList.toggle("open"));
+    document.querySelectorAll(".nav a").forEach(link => {
+      link.addEventListener("click", () => nav.classList.remove("open"));
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
