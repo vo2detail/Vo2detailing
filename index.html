@@ -31,7 +31,50 @@
     footer{padding:34px 5vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:20px;color:var(--muted);font-size:.8rem}
     @media(max-width:980px){.desktop-book{display:none}.menu{display:block}.nav{display:none;position:absolute;top:77px;left:0;width:100%;background:#0b0f0c;padding:24px 5vw;border-bottom:1px solid var(--line);flex-direction:column}.nav.open{display:flex}.hero-grid,.about-grid{grid-template-columns:1fr}.vehicle-card{min-height:420px}.service-grid{grid-template-columns:1fr}.equipment-grid{grid-template-columns:repeat(2,1fr)}.product-list{grid-template-columns:1fr 1fr}.gallery-grid{grid-template-columns:1fr}.addons{grid-template-columns:1fr}.cta{align-items:flex-start;flex-direction:column}}
     @media(max-width:650px){.header{padding:0 20px}.wrap,.hero-grid{width:auto;margin:0 20px}.hero{padding-top:72px;min-height:auto}h1{font-size:4.1rem}.vehicle-card{min-height:350px;padding:20px}.car-art{transform:scale(.87)}.stats{grid-template-columns:1fr 1fr}.stats div{border-bottom:1px solid var(--line)}.section{padding:80px 0}.equipment-grid,.product-list{grid-template-columns:1fr}.cta{width:auto;margin:0 20px 60px;padding:34px 24px}.cta-actions,.cta-actions .button{width:100%}footer{padding:30px 20px;align-items:flex-start;flex-direction:column}}
-  </style>
+  
+/* Interactive upgrades */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+.before-after{position:relative;min-height:470px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#121713;user-select:none}
+.ba-layer{position:absolute;inset:0;display:flex;align-items:flex-end;padding:28px;background-size:cover;background-position:center}
+.ba-before{background:linear-gradient(to top,rgba(0,0,0,.86),rgba(0,0,0,.18)),linear-gradient(145deg,#5b625b,#1c211d 55%,#0c0f0d)}
+.ba-after{width:50%;overflow:hidden;background:linear-gradient(to top,rgba(0,0,0,.82),rgba(0,0,0,.1)),radial-gradient(circle at 70% 28%,rgba(140,255,50,.25),transparent 25%),linear-gradient(145deg,#2e3b31,#0a0e0b 58%)}
+.ba-after .ba-content{min-width:min(var(--max),88vw)}
+.ba-label{display:inline-block;padding:7px 10px;border-radius:3px;background:rgba(7,16,8,.82);border:1px solid rgba(255,255,255,.18);font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.12em}
+.ba-label.after{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.ba-copy h3{margin:10px 0 0;font-size:1.65rem}
+.ba-copy p{margin:4px 0 0;color:#d0d6ce}
+.ba-divider{position:absolute;top:0;bottom:0;left:50%;width:3px;background:var(--lime);transform:translateX(-50%);pointer-events:none;box-shadow:0 0 20px rgba(140,255,50,.55)}
+.ba-knob{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center;font-weight:900;box-shadow:0 8px 30px rgba(0,0,0,.45);pointer-events:none}
+.ba-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize}
+.estimator{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+.estimator-form,.estimate-card{border:1px solid var(--line);border-radius:9px;background:var(--panel);padding:28px}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field label{font-size:.78rem;color:#d6dbd3;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.field select,.field input{width:100%;min-height:48px;border:1px solid var(--line);border-radius:5px;background:#090d0a;color:white;padding:0 13px;font:inherit}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.check{display:flex;gap:9px;align-items:center;padding:11px;border:1px solid var(--line);border-radius:5px;color:#dce1d9}
+.check input{accent-color:var(--lime)}
+.estimate-card{display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(180deg,rgba(140,255,50,.08),transparent 44%),var(--panel)}
+.estimate-price{font-size:3.9rem;line-height:1;font-weight:900;color:var(--lime);letter-spacing:-.06em}
+.estimate-card small{color:var(--muted)}
+.estimate-summary{margin:24px 0;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:#d7dcd5}
+.estimate-card .button{width:100%}
+.floating-book{display:none;position:fixed;right:18px;bottom:18px;z-index:60;box-shadow:0 12px 35px rgba(0,0,0,.45)}
+.review-shell{overflow:hidden}
+.review-track{display:flex;transition:transform .45s ease}
+.review{min-width:100%;padding:32px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+.review-stars{color:var(--lime);letter-spacing:.12em}
+.review blockquote{margin:18px 0;font-size:1.25rem;line-height:1.55}
+.review cite{color:var(--muted);font-style:normal}
+.review-controls{display:flex;gap:10px;margin-top:14px}
+.review-controls button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#0c110d;color:white;font-size:1.1rem;cursor:pointer}
+.review-controls button:hover{border-color:var(--lime);color:var(--lime)}
+@media(max-width:980px){.estimator{grid-template-columns:1fr}}
+@media(max-width:650px){.field-grid,.checks{grid-template-columns:1fr}.before-after{min-height:390px}.floating-book{display:inline-flex}.estimate-price{font-size:3.2rem}}
+
+</style>
 </head>
 <body>
 <header class="header">
@@ -46,23 +89,176 @@
   <div class="vehicle-card"><div class="vehicle-meta"><strong>VO2 Mobile Detailing</strong><span>PNW / 2026</span></div><div class="car-art"><div class="car-window"></div><div class="car-body"></div><div class="wheel one"></div><div class="wheel two"></div></div><p>We bring the detail to you — so your car can look its best without disrupting your day.</p></div>
 </div></section>
 <section class="stats"><div><strong>Mobile Service</strong><span>Home, work or campus</span></div><div><strong>Premium Products</strong><span>Koch Chemie + P&amp;S</span></div><div><strong>Careful Process</strong><span>Safe, methodical cleaning</span></div><div><strong>Easy Booking</strong><span>Call or text directly</span></div></section>
-<section class="section" id="services"><div class="wrap"><div class="heading"><p class="eyebrow">Services + Pricing</p><h2>Choose the level of detail your vehicle needs.</h2><p>Prices are starting rates. Final quotes depend on vehicle size, condition and requested add-ons.</p></div><div class="service-grid">
+<section class="section reveal" id="services"><div class="wrap"><div class="heading"><p class="eyebrow">Services + Pricing</p><h2>Choose the level of detail your vehicle needs.</h2><p>Prices are starting rates. Final quotes depend on vehicle size, condition and requested add-ons.</p></div><div class="service-grid">
 <article class="card"><span class="num">01 / EXTERIOR</span><h3>Exterior Detail</h3><div class="price">$90 <small>cars</small></div><p>SUVs from $110 · Trucks from $130</p><ul><li>Wheel and tire cleaning</li><li>Foam pre-wash</li><li>Safe hand wash</li><li>Bug removal</li><li>Door jamb cleaning</li><li>Tire dressing</li><li>Koch Chemie Protector Wax</li><li>Careful hand drying</li></ul><a href="sms:5092013780?body=Hi%2C%20I%27m%20interested%20in%20an%20Exterior%20Detail.">Ask for an exterior quote →</a></article>
 <article class="card"><span class="num">02 / INTERIOR</span><h3>Interior Detail</h3><div class="price">$160 <small>cars</small></div><p>SUVs from $190 · Trucks from $230</p><ul><li>Full vacuum</li><li>Tornador air blowout</li><li>Dashboard, plastics and vinyl</li><li>Carpet and fabric cleaning</li><li>Steam cleaning as needed</li><li>Interior glass cleaning</li><li>Leather cleaning if equipped</li><li>Detailed finishing touches</li></ul><a href="sms:5092013780?body=Hi%2C%20I%27m%20interested%20in%20an%20Interior%20Detail.">Ask for an interior quote →</a></article>
 <article class="card featured"><div class="tag">Most Popular</div><span class="num">03 / COMPLETE</span><h3>Premium Full Detail</h3><div class="price">$290 <small>cars</small></div><p>SUVs from $340 · Trucks from $390</p><ul><li>Complete interior detail</li><li>Complete exterior detail</li><li>Iron removal treatment</li><li>Clay towel decontamination</li><li>Premium exterior protection</li><li>Deep wheel cleaning</li><li>Extra finishing touches</li><li>Priority final inspection</li></ul><a href="sms:5092013780?body=Hi%2C%20I%27m%20interested%20in%20the%20Premium%20Full%20Detail.">Ask for a full-detail quote →</a></article>
 </div><p class="pricing-note">Excessive pet hair, heavy staining, biohazards and unusually neglected vehicles may require additional time and pricing.</p></div></section>
-<section class="section alt" id="about"><div class="wrap about-grid"><div class="portrait"></div><div class="about-copy"><p class="eyebrow">Meet the Founder</p><h2>A student-built business with professional standards.</h2><p>I’m Isaac, founder of <strong>VO2 Detailing</strong>. I’m preparing to attend the University of Washington while building this business from the ground up.</p><p>Running and training taught me that consistency, discipline and attention to small details are what separate average results from great ones. I bring that same mindset to every vehicle I work on.</p><p>My goal is simple: give customers honest pricing, convenient mobile service and a result I’m proud to put my name on.</p><a class="button" href="sms:5092013780?body=Hi%20Isaac%2C%20I%27d%20like%20a%20quote%20for%20my%20vehicle.">Text Isaac</a></div></div></section>
-<section class="section" id="equipment"><div class="wrap"><div class="heading"><p class="eyebrow">Professional Setup</p><h2>The tools behind the finish.</h2><p>VO2 Detailing uses professional equipment designed to clean thoroughly while treating each surface carefully.</p></div><div class="equipment-grid">
+<section class="section alt reveal" id="about"><div class="wrap about-grid"><div class="portrait"></div><div class="about-copy"><p class="eyebrow">Meet the Founder</p><h2>A student-built business with professional standards.</h2><p>I’m Isaac, founder of <strong>VO2 Detailing</strong>. I’m preparing to attend the University of Washington while building this business from the ground up.</p><p>Running and training taught me that consistency, discipline and attention to small details are what separate average results from great ones. I bring that same mindset to every vehicle I work on.</p><p>My goal is simple: give customers honest pricing, convenient mobile service and a result I’m proud to put my name on.</p><a class="button" href="sms:5092013780?body=Hi%20Isaac%2C%20I%27d%20like%20a%20quote%20for%20my%20vehicle.">Text Isaac</a></div></div></section>
+<section class="section reveal" id="equipment"><div class="wrap"><div class="heading"><p class="eyebrow">Professional Setup</p><h2>The tools behind the finish.</h2><p>VO2 Detailing uses professional equipment designed to clean thoroughly while treating each surface carefully.</p></div><div class="equipment-grid">
 <article class="tool-card"><span>01</span><h3>Pressure Washer + Foam Cannon</h3><p>For safe pre-washing, rinsing and exterior cleaning.</p></article><article class="tool-card"><span>02</span><h3>Tornador + Air Compressor</h3><p>For cracks, vents, carpets and hard-to-reach interior areas.</p></article><article class="tool-card"><span>03</span><h3>Steam Cleaner</h3><p>Used selectively for stubborn interior grime and detailed cleaning.</p></article><article class="tool-card"><span>04</span><h3>Wet/Dry Vacuum</h3><p>For deep vacuuming and controlled wet pickup when needed.</p></article><article class="tool-card"><span>05</span><h3>Drill Brushes</h3><p>Multiple brush types for carpet, fabric and appropriate interior surfaces.</p></article><article class="tool-card"><span>06</span><h3>Detail Brushes</h3><p>Soft brushes for vents, trim, emblems, wheels and tight areas.</p></article><article class="tool-card"><span>07</span><h3>Clay Towel + Decon Tools</h3><p>For removing bonded contamination from exterior paint.</p></article><article class="tool-card"><span>08</span><h3>Professional Microfibers</h3><p>Dedicated towels for paint, glass, interiors and final finishing.</p></article>
 </div></div></section>
 <section class="section alt"><div class="wrap"><div class="heading"><p class="eyebrow">Products We Use</p><h2>Proven chemicals from trusted detailing brands.</h2></div><div class="product-list"><div class="product"><strong>Koch Chemie Gentle Snow Foam</strong><span>Exterior pre-wash and cleaning</span></div><div class="product"><strong>Koch Chemie Green Star</strong><span>Targeted all-purpose cleaning</span></div><div class="product"><strong>Koch Chemie Protector Wax</strong><span>Gloss and exterior protection</span></div><div class="product"><strong>P&amp;S Brake Buster</strong><span>Wheel and tire cleaning</span></div><div class="product"><strong>P&amp;S Iron Buster</strong><span>Paint and wheel decontamination</span></div><div class="product"><strong>P&amp;S Shine All</strong><span>Tire and trim finishing</span></div><div class="product"><strong>P&amp;S Xpress Interior Cleaner</strong><span>Interior plastics and surfaces</span></div><div class="product"><strong>P&amp;S Carpet Bomber</strong><span>Carpet and fabric cleaning</span></div><div class="product"><strong>Sprayway Glass Cleaner</strong><span>Clear interior and exterior glass</span></div></div></div></section>
 <section class="section"><div class="wrap"><div class="heading"><p class="eyebrow">Add-Ons</p><h2>Extra attention where your vehicle needs it most.</h2></div><div class="addons"><div class="addon"><strong>Pet Hair Removal</strong><span>Starting at $30</span><p>Additional time for embedded hair across seats, carpet and cargo areas.</p></div><div class="addon"><strong>Heavy Stain Treatment</strong><span>Starting at $40</span><p>Focused treatment for difficult carpet or fabric staining.</p></div><div class="addon"><strong>Paint Decontamination</strong><span>Starting at $75</span><p>Iron removal plus clay-towel treatment for a smoother exterior finish.</p></div></div></div></section>
-<section class="section alt" id="gallery"><div class="wrap"><div class="heading"><p class="eyebrow">Results</p><h2>Real work will replace these placeholders.</h2><p>As you complete more customer vehicles, your own before-and-after photos can be added here.</p></div><div class="gallery-grid"><div class="gallery-item"><span>Before + After</span><p>Interior transformation</p></div><div class="gallery-item"><span>Exterior</span><p>Gloss, wheels and finishing</p></div><div class="gallery-item"><span>Detail Work</span><p>Trim, vents and final touches</p></div></div></div></section>
-<section class="section"><div class="wrap"><div class="heading"><p class="eyebrow">FAQ</p><h2>What customers usually ask.</h2></div><div class="faq"><details><summary>Do you bring your own equipment?</summary><p>Yes. VO2 Detailing arrives with professional cleaning equipment, chemicals and detailing tools. Access needs can be confirmed when booking.</p></details><details><summary>How long does a detail take?</summary><p>Most services take several hours depending on vehicle size, condition and the selected package. You’ll receive an estimate before the appointment.</p></details><details><summary>Can pricing change after I book?</summary><p>The quote is based on the information and photos provided. If the vehicle’s condition is significantly different, any pricing change will be discussed before additional work begins.</p></details><details><summary>Where do you provide service?</summary><p>VO2 Detailing is focused on Seattle and the greater Pacific Northwest. Exact availability depends on location and schedule.</p></details></div></div></section>
+<section class="section alt reveal" id="gallery"><div class="wrap"><div class="heading"><p class="eyebrow">Results</p><h2>Real work will replace these placeholders.</h2><p>As you complete more customer vehicles, your own before-and-after photos can be added here.</p></div><div class="gallery-grid"><div class="gallery-item"><span>Before + After</span><p>Interior transformation</p></div><div class="gallery-item"><span>Exterior</span><p>Gloss, wheels and finishing</p></div><div class="gallery-item"><span>Detail Work</span><p>Trim, vents and final touches</p></div></div></div></section>
+
+<section class="section alt reveal" id="before-after">
+  <div class="wrap">
+    <div class="heading">
+      <p class="eyebrow">Interactive Result Preview</p>
+      <h2>Drag to reveal the difference.</h2>
+      <p>This preview is ready for your real before-and-after photos whenever you have them.</p>
+    </div>
+    <div class="before-after">
+      <div class="ba-layer ba-before">
+        <div class="ba-copy"><span class="ba-label">Before</span><h3>Daily buildup and dull surfaces</h3><p>Move the slider to preview the finished result.</p></div>
+      </div>
+      <div class="ba-layer ba-after">
+        <div class="ba-content"><div class="ba-copy"><span class="ba-label after">After</span><h3>Cleaned, protected and elevated</h3><p>A crisp finish with the small details handled.</p></div></div>
+      </div>
+      <div class="ba-divider"></div>
+      <div class="ba-knob">↔</div>
+      <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Before and after comparison slider">
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="estimate">
+  <div class="wrap">
+    <div class="heading">
+      <p class="eyebrow">Instant Estimate</p>
+      <h2>Build a quick starting estimate.</h2>
+      <p>This gives customers a useful ballpark. Final pricing is confirmed after photos and vehicle-condition details.</p>
+    </div>
+    <div class="estimator">
+      <div class="estimator-form">
+        <div class="field-grid">
+          <div class="field">
+            <label for="vehicleType">Vehicle type</label>
+            <select id="vehicleType">
+              <option value="car">Car</option>
+              <option value="suv">SUV / Crossover</option>
+              <option value="truck">Truck / Large SUV</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="serviceType">Service</label>
+            <select id="serviceType">
+              <option value="exterior">Exterior Detail</option>
+              <option value="interior">Interior Detail</option>
+              <option value="full">Premium Full Detail</option>
+            </select>
+          </div>
+        </div>
+        <div class="checks">
+          <label class="check"><input type="checkbox" value="30" data-label="Pet hair removal"> Pet hair removal</label>
+          <label class="check"><input type="checkbox" value="40" data-label="Heavy stain treatment"> Heavy stain treatment</label>
+          <label class="check"><input type="checkbox" value="75" data-label="Paint decontamination"> Paint decontamination</label>
+          <label class="check"><input type="checkbox" value="25" data-label="Extra-large condition buffer"> Extra-heavy condition</label>
+        </div>
+      </div>
+      <div class="estimate-card">
+        <div>
+          <p class="eyebrow">Estimated Starting Price</p>
+          <div class="estimate-price" id="estimatePrice">$90</div>
+          <small>Not a final quote</small>
+          <div class="estimate-summary" id="estimateSummary">Car · Exterior Detail</div>
+        </div>
+        <a class="button" id="estimateText" href="sms:5092013780">Text This Estimate</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt reveal" id="reviews">
+  <div class="wrap">
+    <div class="heading">
+      <p class="eyebrow">Customer Experience</p>
+      <h2>A review section ready to grow with the business.</h2>
+      <p>These are clearly marked placeholders until you collect real customer reviews.</p>
+    </div>
+    <div class="review-shell">
+      <div class="review-track">
+        <article class="review"><div class="review-stars">★★★★★</div><blockquote>“Sample review placeholder: professional communication, careful work and a noticeably cleaner vehicle.”</blockquote><cite>Future verified customer review</cite></article>
+        <article class="review"><div class="review-stars">★★★★★</div><blockquote>“Sample review placeholder: convenient mobile service and strong attention to the smaller interior details.”</blockquote><cite>Future verified customer review</cite></article>
+        <article class="review"><div class="review-stars">★★★★★</div><blockquote>“Sample review placeholder: straightforward pricing, respectful service and a finish worth recommending.”</blockquote><cite>Future verified customer review</cite></article>
+      </div>
+      <div class="review-controls">
+        <button id="reviewPrev" aria-label="Previous review">←</button>
+        <button id="reviewNext" aria-label="Next review">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal"><div class="wrap"><div class="heading"><p class="eyebrow">FAQ</p><h2>What customers usually ask.</h2></div><div class="faq"><details><summary>Do you bring your own equipment?</summary><p>Yes. VO2 Detailing arrives with professional cleaning equipment, chemicals and detailing tools. Access needs can be confirmed when booking.</p></details><details><summary>How long does a detail take?</summary><p>Most services take several hours depending on vehicle size, condition and the selected package. You’ll receive an estimate before the appointment.</p></details><details><summary>Can pricing change after I book?</summary><p>The quote is based on the information and photos provided. If the vehicle’s condition is significantly different, any pricing change will be discussed before additional work begins.</p></details><details><summary>Where do you provide service?</summary><p>VO2 Detailing is focused on Seattle and the greater Pacific Northwest. Exact availability depends on location and schedule.</p></details></div></div></section>
 <section class="cta" id="contact"><div><p class="eyebrow">Book Today</p><h2>Give your vehicle the reset it deserves.</h2><p>Text the year, make and model of your vehicle, the service you want and a few photos for the fastest quote.</p></div><div class="cta-actions"><a class="button" href="sms:5092013780?body=Hi%20Isaac%2C%20I%27d%20like%20a%20quote.%20My%20vehicle%20is%3A%20">Text 509-201-3780</a><a class="button outline" href="tel:5092013780">Call Now</a></div></section>
 </main>
 <footer><a class="logo" href="#top"><span class="logo-mark">VO2</span><span>DETAILING</span></a><p>Seattle + Greater PNW Mobile Auto Detailing</p><p>© <span id="year"></span> VO2 Detailing</p></footer>
-<script>const menu=document.querySelector('.menu'),nav=document.querySelector('.nav');menu.addEventListener('click',()=>nav.classList.toggle('open'));document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));document.getElementById('year').textContent=new Date().getFullYear();</script>
+<a class="button floating-book" href="sms:5092013780?body=Hi%20Isaac%2C%20I%27d%20like%20a%20quote.">Text to Book</a>
+<script>
+const menu=document.querySelector('.menu');
+const nav=document.querySelector('.nav');
+menu.addEventListener('click',()=>nav.classList.toggle('open'));
+document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+document.getElementById('year').textContent=new Date().getFullYear();
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+const range=document.querySelector('.ba-range');
+const after=document.querySelector('.ba-after');
+const divider=document.querySelector('.ba-divider');
+const knob=document.querySelector('.ba-knob');
+if(range){
+  range.addEventListener('input',()=>{
+    const value=range.value+'%';
+    after.style.width=value;
+    divider.style.left=value;
+    knob.style.left=value;
+  });
+}
+
+const basePrices={
+  exterior:{car:90,suv:110,truck:130},
+  interior:{car:160,suv:190,truck:230},
+  full:{car:290,suv:340,truck:390}
+};
+const serviceNames={exterior:'Exterior Detail',interior:'Interior Detail',full:'Premium Full Detail'};
+const vehicleNames={car:'Car',suv:'SUV / Crossover',truck:'Truck / Large SUV'};
+const vehicle=document.getElementById('vehicleType');
+const service=document.getElementById('serviceType');
+const checks=[...document.querySelectorAll('.check input')];
+const priceEl=document.getElementById('estimatePrice');
+const summaryEl=document.getElementById('estimateSummary');
+const textLink=document.getElementById('estimateText');
+
+function updateEstimate(){
+  let total=basePrices[service.value][vehicle.value];
+  const extras=[];
+  checks.forEach(box=>{
+    if(box.checked){
+      total+=Number(box.value);
+      extras.push(box.dataset.label);
+    }
+  });
+  priceEl.textContent='$'+total;
+  const summary=vehicleNames[vehicle.value]+' · '+serviceNames[service.value]+(extras.length?' · '+extras.join(', '):'');
+  summaryEl.textContent=summary;
+  textLink.href='sms:5092013780?body='+encodeURIComponent('Hi Isaac, my website estimate is $'+total+' for: '+summary+'. I would like a final quote.');
+}
+[vehicle,service,...checks].forEach(el=>el&&el.addEventListener('change',updateEstimate));
+updateEstimate();
+
+let reviewIndex=0;
+const track=document.querySelector('.review-track');
+const reviewCount=document.querySelectorAll('.review').length;
+function showReview(){
+  if(track) track.style.transform=`translateX(-${reviewIndex*100}%)`;
+}
+document.getElementById('reviewNext')?.addEventListener('click',()=>{reviewIndex=(reviewIndex+1)%reviewCount;showReview()});
+document.getElementById('reviewPrev')?.addEventListener('click',()=>{reviewIndex=(reviewIndex-1+reviewCount)%reviewCount;showReview()});
+</script>
 </body></html>
-vo2-detailing-premium.html
-Displaying vo2-detailing-premium.html.
