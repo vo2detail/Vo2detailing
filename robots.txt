@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vo2detailing.vo2mobiledetailing.workers.dev/sitemap.xml

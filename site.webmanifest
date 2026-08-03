@@ -1,0 +1,9 @@
+{
+  "name": "VO2 Detailing",
+  "short_name": "VO2",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060807",
+  "theme_color": "#8cff32",
+  "description": "Professional mobile auto detailing in Seattle and nearby Pacific Northwest communities."
+}
