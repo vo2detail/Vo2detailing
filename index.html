@@ -13,6 +13,7 @@
   <meta name="geo.placename" content="Seattle">
   <link rel="canonical" href="https://vo2detailing.vo2mobiledetailing.workers.dev/">
   <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" as="image" href="VO2-Detail-logo.png" type="image/png">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="VO2 Detailing | Seattle Mobile Auto Detailing">
@@ -56,7 +57,7 @@
       border-bottom:1px solid var(--line);
     }
     .logo{display:inline-flex;align-items:center;flex:0 0 auto}
-    .brand-logo{display:block;width:112px;height:auto;overflow:visible}
+    .brand-logo{display:block;width:auto;height:74px;object-fit:contain}
     .nav{display:flex;gap:26px;color:#dfe4dc;font-size:.9rem}
     .nav a:hover{color:var(--lime)}
     .menu{display:none;background:transparent;border:0;color:white;font-size:1.5rem}
@@ -192,7 +193,7 @@
       .cta{align-items:flex-start;flex-direction:column}
     }
     @media(max-width:650px){
-      .header{min-height:78px;padding:0 20px} .brand-logo{width:98px} .nav{top:77px} .wrap,.hero-grid{width:auto;margin:0 20px}
+      .header{min-height:78px;padding:0 20px} .brand-logo{height:65px} .nav{top:77px} .wrap,.hero-grid{width:auto;margin:0 20px}
       .hero{padding-top:72px;min-height:auto} h1{font-size:4.05rem}
       .vehicle-card{min-height:350px;padding:20px} .car-art{transform:scale(.87)}
       .stats{grid-template-columns:1fr 1fr} .stats div{border-bottom:1px solid var(--line)}
@@ -231,27 +232,8 @@
   </script>
 </head>
 <body>
-  <!-- Embedded vector logo: no separate image file is required. -->
-  <svg aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute;overflow:hidden">
-    <symbol id="vo2-logo" viewBox="24 42 462 300">
-      <path d="M304 170 273 718H141L214 0H331L656 718H528Z" transform="translate(54 236) scale(.26 -.26)" fill="#F6F8F4"/>
-      <path d="M449 737C353 737 260 688 196 604C133 522 88 372 88 245C88 81 174-19 315-19C411-19 504 30 568 114C632 198 675 342 675 474C675 557 651 631 610 673C569 714 512 737 449 737ZM426 610C503 610 550 548 550 447C550 256 457 108 339 108C261 108 214 169 214 271C214 348 233 432 264 494C301 567 362 610 426 610Z" transform="translate(188.22 236) scale(.26 -.26)" fill="#F6F8F4"/>
-      <path d="M219 459C238 555 267 592 324 592C366 592 391 564 391 515C391 450 359 400 270 332C94 200 52 144 21 0H419L441 124H188C205 150 219 163 293 219C401 299 403 301 432 334C481 391 508 464 508 539C508 644 444 710 343 710C275 710 214 679 173 624C141 581 125 542 108 459Z" transform="translate(362.1 166) scale(.142 -.142)" fill="#8CFF32"/>
-      <path d="M68 122 256 84 238 116 59 153Z" fill="#8CFF32"/>
-      <path d="M54 257H426.9" stroke="#8CFF32" stroke-width="6"/>
-      <path d="M62 0H317C382 0 439 26 478 75C532 144 562 249 562 374C562 592 474 718 322 718H62ZM182 595H300C393 595 437 522 437 370C437 214 387 123 302 123H182Z" transform="translate(30.903 327) scale(.055 -.055)" fill="#F6F8F4"/>
-      <path d="M495 718H62V0H509V127H182V313H470V440H182V591H495Z" transform="translate(85.463 327) scale(.055 -.055)" fill="#F6F8F4"/>
-      <path d="M312 591H490V718H11V591H189V0H312Z" transform="translate(137.548 327) scale(.055 -.055)" fill="#F6F8F4"/>
-      <path d="M187 148H404L442 0H576L368 718H226L16 0H146ZM296 559 370 271H220Z" transform="translate(187.103 327) scale(.055 -.055)" fill="#F6F8F4"/>
-      <path d="M175 718H52V0H175Z" transform="translate(241.663 327) scale(.055 -.055)" fill="#F6F8F4"/>
-      <path d="M185 718H62V0H478V130H185Z" transform="translate(276.204 327) scale(.055 -.055)" fill="#F6F8F4"/>
-      <path d="M175 718H52V0H175Z" transform="translate(325.759 327) scale(.055 -.055)" fill="#F6F8F4"/>
-      <path d="M422 214 186 718H57V0H171V515L414 0H536V718H422Z" transform="translate(360.299 327) scale(.055 -.055)" fill="#F6F8F4"/>
-      <path d="M338 265H476C462 205 450 178 425 151C398 122 366 108 327 108C221 108 161 197 161 354C161 514 225 614 327 614C393 614 447 565 459 495H583C576 547 568 575 547 612C501 693 422 737 324 737C148 737 36 588 36 354C36 131 145-19 306-19C386-19 432 8 490 90L503 0H585V387H338Z" transform="translate(414.859 327) scale(.055 -.055)" fill="#F6F8F4"/>
-    </symbol>
-  </svg>
   <header class="header">
-    <a class="logo" href="#top" aria-label="VO2 Detailing home"><svg class="brand-logo" viewBox="24 42 462 300" role="img" aria-label="VO2 Detailing"><use href="#vo2-logo"></use></svg></a>
+    <a class="logo" href="#top" aria-label="VO2 Detailing home"><img class="brand-logo" src="VO2-Detail-logo.png" alt="VO2 Detail" width="720" height="571"></a>
     <button class="menu" aria-label="Open menu">☰</button>
     <nav class="nav">
       <a href="#services">Services</a>
@@ -446,7 +428,7 @@
     </section>
   </main>
 
-  <footer><a class="logo" href="#top" aria-label="VO2 Detailing home"><svg class="brand-logo" viewBox="24 42 462 300" role="img" aria-label="VO2 Detailing"><use href="#vo2-logo"></use></svg></a><p>Seattle + Greater PNW Mobile Auto Detailing</p><p>© <span id="year"></span> VO2 Detailing</p></footer>
+  <footer><a class="logo" href="#top" aria-label="VO2 Detailing home"><img class="brand-logo" src="VO2-Detail-logo.png" alt="VO2 Detail" width="720" height="571" loading="lazy"></a><p>Seattle + Greater PNW Mobile Auto Detailing</p><p>© <span id="year"></span> VO2 Detailing</p></footer>
   <a class="button floating-book" href="sms:5092013780?body=Hi%20Isaac%2C%20I%27d%20like%20a%20quote.">Text to Book</a>
 
   <script>
