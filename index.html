@@ -179,11 +179,6 @@
     .gallery-item:nth-child(2){background:linear-gradient(to top,rgba(0,0,0,.82),transparent 58%),linear-gradient(145deg,#1d251f,#070908)}
     .gallery-item:nth-child(3){background:linear-gradient(to top,rgba(0,0,0,.82),transparent 58%),radial-gradient(circle at 40% 25%,rgba(140,255,50,.18),transparent 25%),linear-gradient(145deg,#202720,#080a09)}
     .gallery-item span{color:var(--lime);text-transform:uppercase;letter-spacing:.12em;font-size:.7rem;font-weight:900} .gallery-item p{font-size:1.2rem;font-weight:800;margin:8px 0 0}
-    .review-track{display:flex;transition:transform .45s ease}
-    .review{min-width:100%;padding:32px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
-    .review-stars{color:var(--lime);letter-spacing:.12em} .review blockquote{margin:18px 0;font-size:1.25rem;line-height:1.55} .review cite{color:var(--muted);font-style:normal}
-    .review-controls{display:flex;gap:10px;margin-top:14px} .review-controls button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#0c110d;color:white;font-size:1.1rem;cursor:pointer}
-    details{border:1px solid var(--line);border-radius:6px;padding:20px 22px;background:#0d110e;margin-bottom:12px} summary{cursor:pointer;font-weight:800} details p{color:var(--muted)}
     .cta{margin:0 auto 85px;width:min(var(--max),88vw);padding:60px;border-radius:10px;background:var(--lime);color:var(--ink);display:flex;justify-content:space-between;align-items:flex-end;gap:35px}
     .cta .eyebrow{color:#2c5a1d} .cta p{max-width:620px;color:#31512a} .cta-actions{display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0}
     .cta .button{background:var(--ink);color:white;border-color:var(--ink)} .cta .button.outline{background:transparent;color:var(--ink);border-color:rgba(7,16,8,.35)}
@@ -297,7 +292,7 @@
           <article class="card">
             <span class="num">01 / EXTERIOR</span><h3>Exterior Detail</h3>
             <div class="price">$90 <small>cars</small></div><p>SUVs from $110 · Trucks from $130</p>
-            <ul><li>Wheel and tire cleaning</li><li>Foam pre-wash</li><li>Safe hand wash</li><li>Bug removal</li><li>Door jamb cleaning</li><li>Tire dressing</li><li>Protector Wax</li><li>Careful hand drying</li></ul>
+            <ul><li>Wheel and tire cleaning</li><li>Foam pre-wash</li><li>Safe hand wash</li><li>Bug removal</li><li>Tire dressing</li><li>Protector Wax</li><li>Careful hand drying</li></ul>
             <a href="sms:5092013780?body=Hi%2C%20I%27m%20interested%20in%20an%20Exterior%20Detail.">Ask for an exterior quote →</a>
           </article>
           <article class="card">
@@ -309,7 +304,7 @@
           <article class="card featured">
             <div class="tag">Most Popular</div><span class="num">03 / COMPLETE</span><h3>Premium Full Detail</h3>
             <div class="price">$290 <small>cars</small></div><p>SUVs from $340 · Trucks from $390</p>
-            <ul><li>Complete interior detail</li><li>Complete exterior detail</li><li>Iron removal treatment</li><li>Clay towel decontamination</li><li>Premium exterior protection</li><li>Deep wheel cleaning</li><li>Extra finishing touches</li><li>Priority final inspection</li></ul>
+            <ul><li>Complete interior detail</li><li>Complete exterior detail</li><li>Iron removal treatment as needed</li><li>Clay towel decontamination as needed</li><li>Premium exterior protection</li><li>Deep wheel cleaning</li><li>Extra finishing touches</li><li>Priority final inspection</li></ul>
             <a href="sms:5092013780?body=Hi%2C%20I%27m%20interested%20in%20the%20Premium%20Full%20Detail.">Ask for a full-detail quote →</a>
           </article>
         </div>
@@ -359,6 +354,8 @@
           <div class="product"><strong>P&amp;S Shine All</strong><span>Tire and trim finishing</span></div>
           <div class="product"><strong>P&amp;S Xpress Interior Cleaner</strong><span>Interior plastics and surfaces</span></div>
           <div class="product"><strong>P&amp;S Carpet Bomber</strong><span>Carpet and fabric cleaning</span></div>
+          <div class="product"><strong>P&amp;S Peroxide Treatment</strong><span>Organic stain and odor treatment</span></div>
+          <div class="product"><strong>P&amp;S Terminator Enzyme Spot &amp; Stain Remover</strong><span>Targeted carpet and upholstery stain treatment</span></div>
           <div class="product"><strong>Sprayway Glass Cleaner</strong><span>Interior and exterior glass</span></div>
         </div>
       </div>
@@ -422,34 +419,10 @@
       </div>
     </section>
 
-    <section class="section reveal">
-      <div class="wrap">
-        <div class="heading"><p class="eyebrow">Reviews</p><h2>A section ready for real customer feedback.</h2><p>These are clearly labeled placeholders until you collect verified reviews.</p></div>
-        <div style="overflow:hidden">
-          <div class="review-track">
-            <article class="review"><div class="review-stars">★★★★★</div><blockquote>“Sample placeholder: professional communication, careful work and a noticeably cleaner vehicle.”</blockquote><cite>Future verified customer review</cite></article>
-            <article class="review"><div class="review-stars">★★★★★</div><blockquote>“Sample placeholder: convenient mobile service and strong attention to smaller details.”</blockquote><cite>Future verified customer review</cite></article>
-            <article class="review"><div class="review-stars">★★★★★</div><blockquote>“Sample placeholder: straightforward pricing and a finish worth recommending.”</blockquote><cite>Future verified customer review</cite></article>
-          </div>
-          <div class="review-controls"><button id="reviewPrev">←</button><button id="reviewNext">→</button></div>
-        </div>
-      </div>
-    </section>
-
     <section class="section alt reveal" id="service-area">
       <div class="wrap">
         <div class="heading"><p class="eyebrow">Service Area</p><h2>Mobile car detailing in Seattle and nearby communities.</h2><p>VO2 Detailing serves customers around Seattle, the University District and nearby Pacific Northwest communities when scheduling allows. Text your neighborhood to confirm availability.</p></div>
         <a class="button" href="sms:5092013780?body=Hi%20Isaac%2C%20can%20you%20confirm%20service%20availability%20for%20my%20location%3F">Check My Location</a>
-      </div>
-    </section>
-
-    <section class="section reveal">
-      <div class="wrap">
-        <div class="heading"><p class="eyebrow">FAQ</p><h2>What customers usually ask.</h2></div>
-        <details><summary>Do you bring your own equipment?</summary><p>Yes. VO2 Detailing arrives with professional cleaning equipment, chemicals and detailing tools. Access needs can be confirmed while booking.</p></details>
-        <details><summary>How long does a detail take?</summary><p>Most services take several hours depending on vehicle size, condition and the selected package.</p></details>
-        <details><summary>Can pricing change after I book?</summary><p>The quote is based on the information and photos provided. Any needed adjustment is discussed before additional work begins.</p></details>
-        <details><summary>Where do you provide service?</summary><p>VO2 Detailing is focused on Seattle and nearby Pacific Northwest communities. Exact availability depends on location and schedule.</p></details>
       </div>
     </section>
 
@@ -499,12 +472,6 @@
     [vehicle,service,...checks].forEach(el=>el.addEventListener('change',updateEstimate));
     updateEstimate();
 
-    let reviewIndex=0;
-    const track=document.querySelector('.review-track');
-    const reviewCount=document.querySelectorAll('.review').length;
-    function showReview(){track.style.transform=`translateX(-${reviewIndex*100}%)`;}
-    document.getElementById('reviewNext').addEventListener('click',()=>{reviewIndex=(reviewIndex+1)%reviewCount;showReview()});
-    document.getElementById('reviewPrev').addEventListener('click',()=>{reviewIndex=(reviewIndex-1+reviewCount)%reviewCount;showReview()});
   </script>
 </body>
 </html>
